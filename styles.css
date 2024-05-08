@@ -18,8 +18,8 @@
     font-size: 2rem;
     border-radius: 50%;
     display: none;
-    bottom: 40px;
-    right: 40px;
+    bottom: 5%;
+    right: 2%;
     color: #576182;
     animation: popup .2s ease-in-out;
 }
@@ -51,6 +51,7 @@ main {
     position: relative;
     scroll-snap-align: end;
     scroll-snap-type: y mandatory;
+    overflow: hidden;
 }
 
 .main-container {
@@ -68,7 +69,10 @@ main {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem 3rem;
 }
 
 nav a {
@@ -83,7 +87,7 @@ nav a::after {
     content: '';
     position: absolute;
     width: 100%;
-    height: 3px;
+    height: 2px;
     background-color: var(--light-gray);
     bottom: calc(0% - 4px);
     left: 0;
@@ -96,7 +100,7 @@ nav a::after {
 main .foto-banda {
     width: 100%;
     position: absolute;
-    bottom: 0;
+    top: 50%;
 }
 
 main i {
@@ -114,19 +118,6 @@ main i {
     background-image: url('img/dark_bg.jpg');
     background-size: cover;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

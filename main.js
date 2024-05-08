@@ -9,5 +9,5 @@ window.onscroll = function () {
 };
 
 goUpBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0 });
+    window.scrollTo(0);
 });
