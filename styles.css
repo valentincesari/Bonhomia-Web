@@ -3,11 +3,41 @@
     padding: 0;
     box-sizing: border-box;
     transition: .3s ease all;
+    scroll-behavior: smooth;
 }
 
 :root {
     --light-gray: #d0d0d0;
 }
+
+.goUpBtn {
+    position: fixed;
+    z-index: 10;
+    background-color: var(--light-gray);
+    padding: 1rem 1.5rem;
+    font-size: 2rem;
+    border-radius: 50%;
+    display: none;
+    bottom: 40px;
+    right: 40px;
+    color: #576182;
+    animation: popup .2s ease-in-out;
+}
+
+@keyframes popup {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: .5;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
+
 
 main {
     height: 100svh;
@@ -19,6 +49,8 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
+    scroll-snap-align: end;
+    scroll-snap-type: y mandatory;
 }
 
 .main-container {
@@ -30,7 +62,7 @@ main {
 }
 
 .main-container img {
-    width: 40rem;
+    width: clamp(20rem, 80vw, 40rem);
 }
 
 nav ul {
@@ -40,15 +72,25 @@ nav ul {
 }
 
 nav a {
-    font-family: "lft-etica-mono", sans-serif;
-    font-weight: lighter;
-    font-style: normal;
-    font-size: 1.5rem;
+    font-family: "Inconsolata", monospace;
+    font-size: 1.8rem;
     text-decoration: none;
     color: var(--light-gray);
-    font-weight: bold;
-    border-bottom: 3px solid transparent;
+    position: relative;
+}
 
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: var(--light-gray);
+    bottom: calc(0% - 4px);
+    left: 0;
+
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
 }
 
 main .foto-banda {
@@ -65,8 +107,31 @@ main i {
     opacity: .7;
 }
 
+
+
+.album {
+    height: 100svh;
+    background-image: url('img/dark_bg.jpg');
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media (hover: hover) {
-    nav a:hover {
-        border-bottom: 3px solid var(--light-gray);
+    nav a:hover::after {
+        transform: scaleX(1);
     }
 }
